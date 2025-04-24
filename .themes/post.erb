@@ -1,0 +1,15 @@
+<% require "sanitize" %>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= entry.metadata.title %></title>
+  </head>
+  <body>
+    <h3 class="entry-title"><%= entry.metadata.title %></h3>
+    <%= entry.metadata.date %>
+    <div class="entry-content">
+      <%= entry.content %>
+    </div>
+  </body>
+</html>

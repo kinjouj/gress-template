@@ -1,0 +1,9 @@
+{
+  "mode": "html",
+  "logger": {
+    "level": "WARN"
+  },
+  "parser": {
+    "renderer": "redcarpet"
+  }
+}
