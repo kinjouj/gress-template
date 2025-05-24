@@ -6,7 +6,7 @@ gem "bigdecimal"
 gem "base64"
 gem "erubis"
 gem "guard-rake"
-gem "parallel"
+gem "json"
 gem "ruby-notify-send", require: "notify-send"
 gem "redcarpet"
 gem "sanitize"
@@ -15,6 +15,9 @@ gem "stringex"
 gem "toml"
 gem "rake"
 gem "webrick"
+
+gem "array-around", github: "kinjouj/ruby-array-around"
+gem "gress-markdown", github: "kinjouj/gress-markdown"
 
 group :test do
   gem "rspec"

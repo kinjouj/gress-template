@@ -13,6 +13,7 @@ task :build do
   CLEAN.include("public/*")
   Rake::Task["clean"].invoke
   cp_r "static/.", "public"
+  #Rake::Task["build_less"].invoke if config.mode == "html"
   result = Benchmark.realtime {
     GC.disable
     Gress.build(config)
@@ -21,6 +22,10 @@ task :build do
   Rake::Task["build_sitemap"].invoke if config.mode == "html"
   NotifySend.send "build complete", "build complete: #{result}sec", "info", 5000
   p "build time: #{result}"
+end
+
+task :build_less do
+  sh "./node_modules/.bin/lessc source/css/* public/css/site.css"
 end
 
 task :build_sitemap do
@@ -48,7 +53,21 @@ task :watch do
       Rake::Task["server"].execute
     else
       pid = fork {
-        sh "guard --no-interactions --no-bundler-warning"
+        sh "guard --no-interactions --no-bundler-warning", verbose: false
+      }
+    end
+  }
+end
+
+task :preview do
+  pid = nil
+
+  loop {
+    if !pid.nil?
+      Rake::Task["server"].execute
+    else
+      pid = fork {
+        Rake::Task["build"].execute
       }
     end
   }
@@ -65,15 +84,15 @@ end
 
 task :github_setup do
   cd "public" do
-    system "git init"
-    system "git remote add origin #{config.repository}"
+    sh "git init"
+    sh "git remote add origin #{config.repository}"
   end
 end
 
 task :github_deploy do
   cd "public" do
-    system "git add -A"
-    system "git commit -m \"Site updated at #{Time.now.utc}\""
-    system "git push origin master"
+    sh "git add -A", verbose: false
+    sh "git commit -m \"Site updated at #{Time.now.utc}\"", verbose: false
+    sh "git push origin master", verbose: false
   end
 end
