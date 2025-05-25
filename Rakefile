@@ -32,7 +32,7 @@ task :build_sitemap do
   files = []
 
   cd "public" do
-    files = glob("*/**/*.html")
+    files = Gress.glob("*/**/*.html")
   end
 
   SitemapGenerator::Sitemap.default_host = "https://kinjouj.github.io"
