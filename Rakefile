@@ -7,13 +7,12 @@ require "rspec/core/rake_task"
 require "gress"
 
 RSpec::Core::RakeTask.new("spec")
-config = Gress::Config.new
+config = Gress::Config.instance
 
 task :build do
   CLEAN.include("public/*")
   Rake::Task["clean"].invoke
-  cp_r "static/.", "public"
-  #Rake::Task["build_less"].invoke if config.mode == "html"
+  Rake::Task["build_assets"].invoke
   result = Benchmark.realtime {
     GC.disable
     Gress.build(config)
@@ -21,18 +20,19 @@ task :build do
   }
   Rake::Task["build_sitemap"].invoke if config.mode == "html"
   NotifySend.send "build complete", "build complete: #{result}sec", "info", 5000
-  p "build time: #{result}"
+  puts "build time: #{result}"
 end
 
-task :build_less do
-  sh "./node_modules/.bin/lessc source/css/* public/css/site.css"
+task :build_assets do
+  cp_r "static/.", "public"
+  sh "./node_modules/.bin/lessc source/css/* public/css/site.css", verbose: false
 end
 
 task :build_sitemap do
   files = []
 
   cd "public" do
-    files = Gress.glob("*/**/*.html")
+    files = Dir.glob("*/**/*.html")
   end
 
   SitemapGenerator::Sitemap.default_host = "https://kinjouj.github.io"
