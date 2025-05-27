@@ -39,7 +39,8 @@ task :build_sitemap do
   SitemapGenerator::Sitemap.sitemaps_path = "./"
   SitemapGenerator::Sitemap.adapter = SitemapGenerator::FileAdapter.new
   SitemapGenerator::Sitemap.create(:compress => false) do
-    files.each do |file|
+    files.sort.each do |file|
+      next if file.match(/^archive/)
       add file, :changefreq => "always", :priority => "1.0"
     end
   end

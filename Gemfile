@@ -16,7 +16,6 @@ gem "toml"
 gem "rake"
 gem "webrick"
 
-gem "array-around", github: "kinjouj/ruby-array-around"
 gem "gress-markdown", github: "kinjouj/gress-markdown"
 
 group :test do
