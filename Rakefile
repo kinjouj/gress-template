@@ -25,7 +25,7 @@ end
 
 task :build_assets do
   cp_r "static/.", "public"
-  sh "./node_modules/.bin/lessc source/css/* public/css/site.css", verbose: false
+  #sh "./node_modules/.bin/lessc source/css/* public/css/site.css", verbose: false
 end
 
 task :build_sitemap do

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kinjouj/gress-core.git
-  revision: bb5172b90950d545d79fe0b8641b1298ae80ca4c
+  revision: d2d9fc836ac5d0ac2ef6b124ee0c7a800418f4e8
   specs:
     gress (1.0.0)
 
@@ -9,12 +9,6 @@ GIT
   revision: 6366cff53708d59c33c1c63c34d3a97ad7952362
   specs:
     gress-markdown (0.0.1)
-
-GIT
-  remote: https://github.com/kinjouj/ruby-array-around.git
-  revision: e931df8dcb39db9d18e2cd81d30a24744d570989
-  specs:
-    array-around (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -90,19 +84,19 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.6.1)
     rexml (3.4.1)
-    rspec (3.13.0)
+    rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.3)
+    rspec-core (3.13.4)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.4)
+    rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.4)
+    rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.3)
+    rspec-support (3.13.4)
     ruby-dbus (0.25.0)
       logger
       rexml
@@ -141,7 +135,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  array-around!
   base64
   benchmark
   bigdecimal
