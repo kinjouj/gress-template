@@ -1,14 +1,20 @@
 GIT
   remote: https://github.com/kinjouj/gress-core.git
-  revision: d2d9fc836ac5d0ac2ef6b124ee0c7a800418f4e8
+  revision: 7bf1dbe5bd6611efd51a7434dec08560329fc4b4
   specs:
     gress (1.0.0)
 
 GIT
   remote: https://github.com/kinjouj/gress-markdown.git
-  revision: 6366cff53708d59c33c1c63c34d3a97ad7952362
+  revision: ece05d472988295ab44b137fae1656fd0ec7b19e
   specs:
     gress-markdown (0.0.1)
+
+GIT
+  remote: https://github.com/kinjouj/ruby-jsonable.git
+  revision: 131daa765bab76e54ed32a5ee5435b65dc932869
+  specs:
+    jsonable (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -143,6 +149,7 @@ DEPENDENCIES
   gress-markdown!
   guard-rake
   json
+  jsonable!
   rake
   redcarpet
   rspec

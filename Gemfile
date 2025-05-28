@@ -16,6 +16,7 @@ gem "toml"
 gem "rake"
 gem "webrick"
 
+gem "jsonable", github: "kinjouj/ruby-jsonable"
 gem "gress", github: "kinjouj/gress-core"
 gem "gress-markdown", github: "kinjouj/gress-markdown"
 
