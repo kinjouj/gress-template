@@ -18,7 +18,7 @@ task :build do
     Gress.build(config)
     GC.enable
   }
-  Rake::Task["build_sitemap"].invoke if config.mode == "html"
+  Rake::Task["build_sitemap"].invoke if Gress::Config[:mode] == "html"
   NotifySend.send "build complete", "build complete: #{result}sec", "info", 5000
   puts "build time: #{result}"
 end
@@ -86,7 +86,7 @@ end
 task :github_setup do
   cd "public" do
     sh "git init"
-    sh "git remote add origin #{config.repository}"
+    sh "git remote add origin #{Gress::Config[:repository]}"
   end
 end
 
