@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "bigdecimal"
+
 gem "benchmark"
 gem "erubis"
 gem "guard-rake"
