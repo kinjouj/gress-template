@@ -1,4 +1,3 @@
-$:.unshift "./lib"
 require "bundler/setup"
 Bundler.require(:default, :test)
 
@@ -7,7 +6,6 @@ require "rspec/core/rake_task"
 require "gress"
 
 RSpec::Core::RakeTask.new("spec")
-config = Gress::Config.instance
 
 task :build do
   CLEAN.include("public/*")
@@ -15,7 +13,7 @@ task :build do
   Rake::Task["build_assets"].invoke
   result = Benchmark.realtime {
     GC.disable
-    Gress.build(config)
+    Gress.build
     GC.enable
   }
   Rake::Task["build_sitemap"].invoke if Gress::Config[:mode] == "html"
@@ -25,7 +23,7 @@ end
 
 task :build_assets do
   cp_r "static/.", "public"
-  #sh "./node_modules/.bin/lessc source/css/* public/css/site.css", verbose: false
+  sh "./node_modules/.bin/lessc source/css/* public/css/site.css", verbose: false
 end
 
 task :build_sitemap do
