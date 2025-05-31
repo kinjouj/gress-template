@@ -5,8 +5,7 @@ coverage
 pkg
 node_modules
 package-lock.json
-.themes
-.cache/*.cache
+.themes/cache/*.cache
 Gemfile.lock
 category_indexes.json
 build.log
