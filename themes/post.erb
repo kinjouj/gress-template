@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title><%= post.title %></title>
+    <title><%= @post.title %></title>
   </head>
   <body>
-    <h3 class="post-title"><%= post.title %></h3>
-    <%= post.date %>
+    <h3 class="post-title"><%= @post.title %></h3>
+    <%= @post.date %>
     <div class="post-content">
-      <%= post.content %>
+      <%= @post.content %>
     </div>
   </body>
 </html>

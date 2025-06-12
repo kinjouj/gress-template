@@ -1,0 +1,12 @@
+[submodule "plugins/html_loader"]
+	path = plugins/html_loader
+	url = https://github.com/kinjouj/gress-plugin-html_loader
+[submodule "plugins/recent_posts"]
+	path = plugins/recent_posts
+	url = https://github.com/kinjouj/gress-plugin-recent_posts.git
+[submodule "plugins/header-pages"]
+	path = plugins/header-pages
+	url = https://github.com/kinjouj/gress-plugin-header-pages.git
+[submodule "plugins/categories_content"]
+	path = plugins/categories_content
+	url = https://github.com/kinjouj/gress-plugin-categories_content.git

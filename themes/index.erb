@@ -5,7 +5,7 @@
     <title>test</title>
   </head>
   <body>
-    <% posts.each do |post| %>
+    <% @posts.each do |post| %>
     <a name="article-link" href="<%= post.permalink %>"><%= post.title %></a>
     <% end %>
   </body>
