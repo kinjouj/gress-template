@@ -29,7 +29,9 @@ end
 
 task :build_assets do
   cp_r "static/.", "public"
-  sh "./node_modules/.bin/lessc less/* public/css/site.css", verbose: false
+  if File.exist?("./node_modules/.bin/lessc")
+    sh "./node_modules/.bin/lessc less/* public/css/site.css", verbose: false
+  end
 end
 
 task :build_sitemap do

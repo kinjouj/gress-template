@@ -1,0 +1,7 @@
+host: "http://localhost"
+mode: "html"
+source_dir: "source"
+paginator:
+  paginate: 10
+logging: true
+repository: ""

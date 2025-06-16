@@ -14,7 +14,6 @@ gem "rubocop", require: false
 gem "ruby-notify-send", require: "notify-send"
 gem "sitemap_generator"
 gem "stringex"
-gem "toml"
 gem "webrick"
 
 gem "jsonable", github: "kinjouj/ruby-jsonable"
