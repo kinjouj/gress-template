@@ -30,6 +30,7 @@ end
 
 desc "build_assets"
 task :build_assets do
+  FileUtils.mkdir_p("public/css")
   cp_r "static/.", "public"
   files = Dir.glob("scss/*")
   files.each do |file|
