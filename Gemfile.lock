@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kinjouj/gress-core.git
-  revision: 6e51ad41a89f4cdb1cd3846c2a0b1a605b2c89bb
+  revision: 041aafb927f5d1e2c7c7e8008e97aede3198cf62
   specs:
     gress (1.0.0)
       erubis (= 2.7.0)
@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/kinjouj/ruby-jsonable.git
-  revision: 0204ba072fce931cfe777c78e044d96eb7b04b25
+  revision: 8d30b0bc89def43b1775018f3cda8995a16d745b
   specs:
     jsonable (0.1.0)
 
@@ -41,6 +41,33 @@ GEM
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
     formatador (1.1.0)
+    google-protobuf (4.31.1)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.31.1-x86_64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     guard (2.19.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -119,6 +146,9 @@ GEM
     ruby-notify-send (0.0.1)
       ruby-dbus
     ruby-progressbar (1.13.0)
+    sass-embedded (1.89.2)
+      google-protobuf (~> 4.31)
+      rake (>= 13)
     shellany (0.0.1)
     simplecov (0.22.0)
       docile (~> 1.1)
@@ -163,6 +193,7 @@ DEPENDENCIES
   rspec
   rubocop
   ruby-notify-send
+  sass-embedded
   simplecov
   simplecov-material
   sitemap_generator

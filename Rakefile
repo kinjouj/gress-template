@@ -13,6 +13,7 @@ RSpec::Core::RakeTask.new("spec")
 
 require "gress"
 
+desc "build"
 task :build do
   CLEAN.include("public/*")
   Rake::Task["clean"].invoke
@@ -27,13 +28,18 @@ task :build do
   puts "build time: #{result}"
 end
 
+desc "build_assets"
 task :build_assets do
   cp_r "static/.", "public"
-  if File.exist?("./node_modules/.bin/lessc")
-    sh "./node_modules/.bin/lessc less/* public/css/site.css", verbose: false
+  files = Dir.glob("scss/*")
+  files.each do |file|
+    basename = File.basename(file, ".scss")
+    scss = Sass.compile(file)
+    File.write("public/css/#{basename}.css", scss.css)
   end
 end
 
+desc "build_sitemap"
 task :build_sitemap do
   files = []
   cd "public" do
@@ -45,13 +51,14 @@ task :build_sitemap do
   SitemapGenerator::Sitemap.adapter = SitemapGenerator::FileAdapter.new
   SitemapGenerator::Sitemap.create(compress: false) do
     files.sort.each do |file|
-      next if file.match(/^archive/)
+      next if file.match(/^archive|category/)
 
       add file, changefreq: "always", priority: "1.0"
     end
   end
 end
 
+desc "watch"
 task :watch do
   pid = nil
 
@@ -64,6 +71,7 @@ task :watch do
   end
 end
 
+desc "preview"
 task :preview do
   pid = nil
 
@@ -76,6 +84,7 @@ task :preview do
   end
 end
 
+desc "server"
 task :server do
   rackup_pid = Process.spawn("ruby -run -e httpd public -p 4000")
   trap("INT") do
